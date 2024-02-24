@@ -1,20 +1,10 @@
-FROM node:20.11.1-alpine as builder
+FROM node:20.11.1-alpine
 
+ADD . /app
 WORKDIR /app
 
-COPY package.json package-lock.json ./
-RUN npm install --frozen-lockfile
-COPY . .
-
+RUN npm install
 RUN npm run build
-
-FROM node:20.11.1-alpine as runner
-
-ENV NODE_ENV=production
-
-COPY --from=builder /app/react/build /app/react/build
-
-WORKDIR /app
 
 EXPOSE 3000
 
