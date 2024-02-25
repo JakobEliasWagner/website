@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nextjs-deployment
+  name: website-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nextjs
+      app: website
   template:
     metadata:
       labels:
-        app: nextjs
+        app: website
     spec:
       containers:
-      - name: nextjs
-        image: <my stuff>
+      - name: website
+        image: <secret>/website:main
         ports:
         - containerPort: 3000
