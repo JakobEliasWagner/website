@@ -13,7 +13,9 @@ spec:
         app: website
     spec:
       containers:
-      - name: website
-        image: <secret>/website:main
+      - name: website-container
+        image: deerfreak/website:main
         ports:
         - containerPort: 3000
+      imagePullSecrets:
+        - name: regcred
