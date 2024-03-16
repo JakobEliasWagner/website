@@ -1,0 +1,26 @@
+.footer-dark {
+    padding:50px 0;
+    color:#f0f9ff;
+    background-color:#282d32;
+    height: 10rem;
+  }
+
+.copyright {
+    height: 2rem;
+}
+
+.content-wrap {
+    padding-bottom: 12rem;    /* Footer height */
+}
+
+.footer-dark .copyright {
+    text-align:center;
+    padding-top:24px;
+    opacity:0.3;
+    font-size:13px;
+    margin-bottom:0;
+}
+
+.page-container {
+    position: relative;
+}
