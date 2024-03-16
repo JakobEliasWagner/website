@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: tls-app
-        image: tls-container
+        image: tls-container:latest
         imagePullPolicy: Never
         ports:
         - containerPort: 80
