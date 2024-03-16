@@ -14,13 +14,14 @@ spec:
     spec:
       containers:
       - name: tls-app
-        image: tls-container:latest
-        imagePullPolicy: IfNotPresent
+        image: deerfreak/website:tls
         ports:
         - containerPort: 80
         volumeMounts:
         - name: crypto-config
           mountPath: /usr/share/nginx/crypto-mount
+      imagePullSecrets:
+        - name: regcred
       volumes:
       - name: crypto-config
         hostPath:
