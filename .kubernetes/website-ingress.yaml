@@ -4,8 +4,13 @@ metadata:
   name: website-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+      - jakob-wagner.com
+    secretName: jakob-wagner-com-tls
   rules:
   - http:
       paths:
@@ -14,5 +19,12 @@ spec:
         backend:
           service:
             name: website-service
+            port:
+              number: 80
+      - path: /.well-known
+        pathType: Prefix
+        backend:
+          service:
+            name: tls-service
             port:
               number: 80
