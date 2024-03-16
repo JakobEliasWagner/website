@@ -15,7 +15,7 @@ spec:
       containers:
       - name: tls-app
         image: tls-container:latest
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
         volumeMounts:
