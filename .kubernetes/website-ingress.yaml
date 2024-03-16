@@ -22,7 +22,7 @@ spec:
             name: website-service
             port:
               number: 80
-      - path: /.well-known
+      - path: /.well-known/
         pathType: Prefix
         backend:
           service:
