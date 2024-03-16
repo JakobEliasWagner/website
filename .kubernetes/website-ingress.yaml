@@ -3,7 +3,6 @@ kind: Ingress
 metadata:
   name: website-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
 spec:
   ingressClassName: nginx
@@ -22,7 +21,7 @@ spec:
             name: website-service
             port:
               number: 80
-      - path: /.well-known/
+      - path: /.well-known
         pathType: Prefix
         backend:
           service:
