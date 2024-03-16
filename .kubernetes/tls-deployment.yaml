@@ -15,6 +15,7 @@ spec:
       containers:
       - name: tls-app
         image: tls-container
+        imagePullPolicy: Never
         ports:
         - containerPort: 80
         volumeMounts:
@@ -24,4 +25,3 @@ spec:
       - name: crypto-config
         hostPath:
           path: /var/www/jakob-wagner.com
-          
