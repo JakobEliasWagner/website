@@ -10,7 +10,7 @@ spec:
   tls:
     - hosts:
       - jakob-wagner.com
-    secretName: jakob-wagner-com-tls
+      secretName: jakob-wagner-com-tls
   rules:
   - http:
       paths:
