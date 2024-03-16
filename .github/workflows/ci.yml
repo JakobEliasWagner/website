@@ -42,7 +42,7 @@ jobs:
         with:
           method: service-account
           k8s-url: ${{ secrets.K8S_URL }}
-          k8s-secret: ${{ secrets.KUBERNETES_SECRET }}
+          k8s-secret: ${{ secrets.KUBERNETES_DEPLOY }}
 
       - name: Checkout source code
         uses: actions/checkout@v4
