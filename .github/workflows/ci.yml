@@ -1,7 +1,9 @@
-name: build-docker
+name: CI
 
 on:
   push:
+    branches:
+      - main
 
 jobs:
   build-docker-image:
@@ -29,3 +31,27 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+  
+   deploy:
+    name: Deploy
+    needs: [ build-docker-image ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set the Kubernetes context
+        uses: azure/k8s-set-context@v2
+        with:
+          method: service-account
+          k8s-url: ${{ K8S_URL }}
+          k8s-secret: ${{ secrets.KUBERNETES_SECRET }}
+
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Deploy to the Kubernetes cluster
+        uses: azure/k8s-deploy@v4
+        with:
+          namespace: default
+          manifests: |
+            .kubernetes/website-deployment.yaml
+            .kubernetes/website-ingress.yaml
+            .kubernetes/website-service.yaml
