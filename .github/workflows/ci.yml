@@ -32,7 +32,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
   
-   deploy:
+  deploy:
     name: Deploy
     needs: [ build-docker-image ]
     runs-on: ubuntu-latest
