@@ -16,7 +16,7 @@ spec:
     http:
       paths:
       - path: /.well-known
-        pathType: Exact
+        pathType: ImplementationSpecific
         backend:
           service:
             name: tls-service
