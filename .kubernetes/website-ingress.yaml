@@ -12,7 +12,8 @@ spec:
       - jakob-wagner.com
       secretName: jakob-wagner-com-tls
   rules:
-  - http:
+  - host: www.jakob-wagner.com
+    http:
       paths:
       - path: /
         pathType: Prefix
